@@ -63,14 +63,14 @@ class _CodeEditorState extends State<CodeEditor> {
               ),
             ),
           ),
+          body: const TabBarView(
+            children: [
+              TextEditor(),
+              TextEditor(),
+              TextEditor(),
+            ],
+          ),
         ),
-      ),
-      body: const TabBarView(
-        children: [
-          TextEditor(),
-          TextEditor(),
-          TextEditor(),
-        ],
       ),
     );
   }
