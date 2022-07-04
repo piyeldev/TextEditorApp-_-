@@ -7,6 +7,6 @@ Franco's new Flutter project.
 ### To Get Started developing:
 
 **Install:**
-Flutter SDK
-Visual Studio Code (Vscode)
+Flutter SDK,
+Visual Studio Code (Vscode),
 Download this Repo as zip
