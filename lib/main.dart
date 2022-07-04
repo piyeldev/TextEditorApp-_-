@@ -5,13 +5,11 @@ import 'package:text_editor_app/HomeScreen.dart';
 import 'package:flutter/services.dart';
 import 'globals.dart';
 
-InAppLocalhostServer localhostServer = new InAppLocalhostServer();
-
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-  await localhostServer.start();
+  // SystemChrome.setPreferredOrientations(
+  //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+
   runApp(const MainScreen());
 }
 
@@ -25,54 +23,50 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
   void Dispose() {
-    localhostServer.close();
     super.dispose();
   }
 
-  late TabController _tabController;
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Inter'),
-      debugShowCheckedModeBanner: false,
-      home: DefaultTabController(
-        length: 2,
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.black87,
-            bottom: TabBar(tabs: [
-              Tab(
-                text: "Get Started",
-              ),
-              Tab(
-                  child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.extension),
-                    SizedBox(
-                      width: 10,
+        theme: ThemeData(fontFamily: 'Inter'),
+        debugShowCheckedModeBanner: false,
+        home: DefaultTabController(
+          length: 2,
+          child: Scaffold(
+            appBar: AppBar(
+              title: Text("Text Editor App"),
+              backgroundColor: Colors.black87,
+              bottom: TabBar(
+                tabs: [
+                  const Tab(
+                    text: "Get Started",
+                  ),
+                  Tab(
+                    child: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.extension),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text("Extensions")
+                        ],
+                      ),
                     ),
-                    Text("Extensions")
-                  ],
-                ),
-              ))
-            ]),
-            title: const Text('Text Editor App'),
+                  ),
+                ],
+              ),
+            ),
+            body: const TabBarView(
+              children: [GetStartedPage(), Icon(Icons.access_alarm)],
+            ),
           ),
-          body: const TabBarView(
-            children: [
-              GetStartedPage(),
-              Icon(Icons.directions_transit),
-            ],
-          ),
-        ),
-      ),
-    );
+        ));
   }
 }

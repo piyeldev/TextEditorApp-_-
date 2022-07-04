@@ -39,39 +39,32 @@ class _CodeEditorState extends State<CodeEditor> {
 
     int _selectedIndex = 0;
     return Scaffold(
-      backgroundColor: androidstudioTheme["root"]!.backgroundColor,
-      body: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: PreferredSize(
-            preferredSize: Size.fromHeight(40.0),
-            child: Container(
-              color: androidstudioTheme["root"]!.backgroundColor,
-              child: SafeArea(
-                child: Column(
-                  children: [
-                    Text(
-                      "index.html",
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                    Text("style.css", style: TextStyle(fontSize: 20)),
-                    Text("app.js", style: TextStyle(fontSize: 20)),
-                  ],
-                ),
+        backgroundColor: androidstudioTheme["root"]!.backgroundColor,
+        body: DefaultTabController(
+          length: 3,
+          child: Scaffold(
+            backgroundColor: androidstudioTheme["root"]!.backgroundColor,
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(40.0),
+              child: Container(
+                color: androidstudioTheme["root"]!.backgroundColor,
+                child: TabBar(isScrollable: true, tabs: [
+                  Tab(
+                    text: "index.html",
+                  ),
+                  Tab(
+                    text: "style.css",
+                  ),
+                  Tab(
+                    text: "app.js",
+                  ),
+                ]),
               ),
             ),
+            body: TabBarView(
+              children: [TextEditor(), TextEditor(), TextEditor()],
+            ),
           ),
-          body: const TabBarView(
-            children: [
-              TextEditor(),
-              TextEditor(),
-              TextEditor(),
-            ],
-          ),
-        ),
-      ),
-    );
+        ));
   }
 }

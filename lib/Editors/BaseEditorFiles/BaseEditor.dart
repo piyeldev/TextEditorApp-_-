@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
-import 'package:text_editor_app/Editors/BaseEditorFiles/CodeEditor.dart';
+import 'package:text_editor_app/Editors/BaseEditorFiles/TabController.dart';
 import 'package:text_editor_app/Editors/Menus/About.dart';
 import 'package:text_editor_app/Editors/Menus/MenuItem.dart';
 import 'package:flutter_highlight/themes/androidstudio.dart';
