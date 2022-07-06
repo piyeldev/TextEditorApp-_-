@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.text_editor_app">
+    package="com.frankycraftrdev.text_editor_app">
    <application
         android:label="text_editor_app"
         android:name="${applicationName}"

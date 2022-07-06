@@ -1,4 +1,4 @@
-package com.example.text_editor_app
+package com.frankycraftrdev.text_editor_app
 
 import io.flutter.embedding.android.FlutterActivity
 
